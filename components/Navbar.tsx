@@ -10,8 +10,6 @@ import {
 import Image from 'next/image';
 import React from 'react';
 
-import { ProfileMenu } from './ProfileMenu';
-
 import {
   Navbar as TailwindNavbar,
   Collapse,
@@ -23,6 +21,8 @@ import {
   Card,
   IconButton,
 } from '@/components/tailwind';
+
+import { ProfileMenu } from './ProfileMenu';
 
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
