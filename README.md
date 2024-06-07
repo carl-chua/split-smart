@@ -1,6 +1,8 @@
 Next.js app
 Component library: Material UI
 CSS library: Tailwind
+Auth: NextAuth.js
+Database: Supabase
 
 ## Getting Started
 
