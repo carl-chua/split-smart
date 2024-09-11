@@ -18,8 +18,12 @@ const pages = ['Products', 'Pricing', 'Blog'];
 function ResponsiveAppBar() {
   const { data: session } = useSession();
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -39,21 +43,15 @@ function ResponsiveAppBar() {
   const settings = [
     {
       label: 'Profile',
-      onClick: () => {
-        handleCloseUserMenu();
-      },
+      onClick: () => {},
     },
     {
       label: 'Account',
-      onClick: () => {
-        handleCloseUserMenu();
-      },
+      onClick: () => {},
     },
     {
       label: 'Dashboard',
-      onClick: () => {
-        handleCloseUserMenu();
-      },
+      onClick: () => {},
     },
   ];
 
@@ -61,23 +59,22 @@ function ResponsiveAppBar() {
     settings.push({
       label: 'Logout',
       onClick: () => {
-        handleCloseUserMenu();
         signOut();
       },
     });
   }
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar position='static'>
+      <Container maxWidth='xl'>
         <Toolbar disableGutters>
           {/* DESKTOP */}
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
-            variant="h6"
+            variant='h6'
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component='a'
+            href='#app-bar-with-responsive-menu'
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -93,17 +90,17 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
+              size='large'
+              aria-label='account of current user'
+              aria-controls='menu-appbar'
+              aria-haspopup='true'
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color='inherit'
             >
               <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
@@ -129,9 +126,9 @@ function ResponsiveAppBar() {
           {/* MOBILE */}
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
-            variant="h5"
+            variant='h5'
             noWrap
-            component="a"
+            component='a'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -157,13 +154,16 @@ function ResponsiveAppBar() {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color: 'inherit' }}>
+            <IconButton
+              onClick={handleOpenUserMenu}
+              sx={{ p: 0, color: 'inherit' }}
+            >
               {session ? (
-                <Avatar alt="avatar" src={session?.user?.image || ''} />
+                <Avatar alt='avatar' src={session?.user?.image || ''} />
               ) : (
                 <Typography
                   noWrap
-                  component="a"
+                  component='a'
                   sx={{ color: 'inherit' }}
                   onClick={() => signIn()}
                 >
@@ -173,7 +173,7 @@ function ResponsiveAppBar() {
             </IconButton>
             <Menu
               sx={{ mt: '45px' }}
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
@@ -188,8 +188,16 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting.label} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting.label}</Typography>
+                <MenuItem
+                  key={setting.label}
+                  onClick={() => {
+                    handleCloseUserMenu();
+                    setting.onClick();
+                  }}
+                >
+                  <Typography sx={{ textAlign: 'center' }}>
+                    {setting.label}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
