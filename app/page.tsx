@@ -1,7 +1,8 @@
 'use client';
 
-import ResponsiveAppBar from '@components/ResponsiveAppBar';
 import { SessionProvider } from 'next-auth/react';
+
+import ResponsiveAppBar from '@components/ResponsiveAppBar';
 
 export default function Home() {
 	console.log('Home');
@@ -9,8 +10,8 @@ export default function Home() {
 	return (
 		<SessionProvider>
 			<ResponsiveAppBar />
-			<div className="">Above navbar is using material tailwind</div>
-			<div className="">Bottom navigation is using material ui</div>
+			<div className=''>Above navbar is using material tailwind</div>
+			<div className=''>Bottom navigation is using material ui</div>
 		</SessionProvider>
 	);
 }
