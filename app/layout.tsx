@@ -4,6 +4,8 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import type { Metadata } from 'next';
+
+import { SimpleBottomNavigation } from '@components/SimpleBottomNavigation';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -20,7 +22,12 @@ export default function RootLayout({
 		<html lang='en'>
 			<meta name='viewport' content='initial-scale=1, width=device-width' />
 			<CssBaseline />
-			<body>{children}</body>
+			<body>
+				<main className='flex flex-col w-full min-h-screen'>
+					{children}
+					<SimpleBottomNavigation />
+				</main>
+			</body>
 		</html>
 	);
 }

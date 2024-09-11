@@ -2,18 +2,16 @@
 
 import { SessionProvider } from 'next-auth/react';
 
-import { Navbar } from '@/components/Navbar';
-import { SimpleBottomNavigation } from '@/components/SimpleBottomNavigation';
+import ResponsiveAppBar from '@components/ResponsiveAppBar';
 
 export default function Home() {
-	return (
-		<SessionProvider>
-			<main className='flex min-h-screen flex-col items-center'>
-				<Navbar />
-				<div className=''>Above navbar is using material tailwind</div>
-				<div className=''>Bottom navigation is using material ui</div>
-				<SimpleBottomNavigation />
-			</main>
-		</SessionProvider>
-	);
+  console.log('Home');
+
+  return (
+    <SessionProvider>
+      <ResponsiveAppBar />
+      <div className=''>Above navbar is using material tailwind</div>
+      <div className=''>Bottom navigation is using material ui</div>
+    </SessionProvider>
+  );
 }

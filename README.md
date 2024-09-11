@@ -1,8 +1,12 @@
-Next.js app
-Component library: Material UI
-CSS library: Tailwind
-Auth: NextAuth.js
-Database: Supabase
+# Next.js app
+
+Component library: [Material UI](https://mui.com/material-ui/)
+
+CSS library: [Tailwind](https://tailwindcss.com/)
+
+Auth:[NextAuth.js](https://next-auth.js.org/)
+
+Database: [Supabase](https://supabase.com/)
 
 ## Getting Started
 
@@ -20,4 +24,4 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The page auto-updates as you edit the file.
