@@ -3,6 +3,17 @@ import NextAuth from 'next-auth';
 import { Adapter } from 'next-auth/adapters';
 import Google from 'next-auth/providers/google';
 
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+const adapter =
+	supabaseUrl && supabaseServiceRoleKey
+		? (SupabaseAdapter({
+			url: supabaseUrl,
+			secret: supabaseServiceRoleKey,
+		}) as Adapter)
+		: undefined;
+
 const handler = NextAuth({
 	providers: [
 		Google({
@@ -11,10 +22,7 @@ const handler = NextAuth({
 		}),
 		// ...add more providers here
 	],
-	adapter: SupabaseAdapter({
-		url: process.env.SUPABASE_URL || '',
-		secret: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
-	}) as Adapter,
+	adapter,
 });
 
 export { handler as GET, handler as POST };
